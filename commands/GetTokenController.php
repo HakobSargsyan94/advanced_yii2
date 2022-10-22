@@ -18,32 +18,19 @@ class GetTokenController extends Controller
         $username = readline('Enter a username : ');
         $password = readline('Enter a password : ');
 
-        $res = $this->checkUser($username, $password);
+        $res = Helpers::checkUser($username, $password);
 
         if ($res) {
-            $token = new Auth();
-            $token->token = Helpers::generateToken();
-            $token->expiration_date = date('Y-m-d H:i:s', strtotime('+5 minutes'));
-            $token->save(false);
+            $generatedToken = Helpers::generateToken();
+
+            $tokenAdd = new Auth();
+            $tokenAdd->token = $generatedToken;
+            $tokenAdd->expiration_date = date('Y-m-d H:i:s');
+            $tokenAdd->save(false);
+
+            die($generatedToken);
+        } else {
+            die('Username or/and password is invalid!');
         }
-    }
-
-    /**
-     * @param string $username
-     * @param string $password
-     * @return bool
-     */
-    private function checkUser (string $username, string $password): bool
-    {
-        $res = User::find()
-            ->where(['username' => $username])
-            ->andWhere(['password_hash' => \Yii::$app->security->decryptByPassword('',$password)])
-            ->exists();
-
-        if ($res) {
-            return true;
-        }
-
-        return false;
     }
 }
