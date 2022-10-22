@@ -14,7 +14,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '2ZJnsHG8Y7qzUxO6suc3udMOqC_kT_zR',
+            'cookieValidationKey' => 'rBzRv-epv_huLoLrzXzurni4T_90Iuuu',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -27,9 +27,10 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
-            'viewPath' => '@app/mail',
-            // send all mails to a file by default.
+            'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure transport
+            // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [
@@ -42,14 +43,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];

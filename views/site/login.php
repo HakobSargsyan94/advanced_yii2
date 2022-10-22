@@ -1,11 +1,11 @@
 <?php
 
 /** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
+/** @var yii\bootstrap4\ActiveForm $form */
 /** @var app\models\LoginForm $model */
 
-use yii\bootstrap5\ActiveForm;
-use yii\bootstrap5\Html;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
@@ -41,9 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
     <?php ActiveForm::end(); ?>
-
-    <div class="offset-lg-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+    <div>
+        <?= Html::a('Reset password', ['site/request-password-reset']) ?>.
+    </div>
+    <div>
+        <?= Html::a('Sign up', ['site/signup']) ?>
     </div>
 </div>

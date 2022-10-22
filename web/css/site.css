@@ -82,3 +82,142 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/*Admin panel part*/
+.main_content {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.crud_system {
+    width: 100%;
+    overflow: auto;
+}
+
+.sidebar {
+    background-color: #202124;
+    height: 100%;
+    max-width: 500px;
+    padding: 10px;
+}
+
+.sidebar_item {
+    background-color: #4b4c50;
+    min-width: 200px;
+    padding: 10px;
+    margin-bottom: 16px;
+    display: block;
+    border-radius: 8px;
+    color: #ffffff;
+}
+a.sidebar_item {
+    text-decoration: none;
+}
+a.sidebar_item:hover {
+    color: #ffffff;
+}
+
+.help-block {
+    color: red;
+}
+/*Admin panel part*/
+
+/*Image zoomer css*/
+.modal-target {
+    width: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.modal-target:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    opacity: 1 !important;
+    max-width: 1200px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: 32px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-atransform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Image zoomer css*/
+
+/*Search section*/
+.search_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search_item {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 100%;
+}
+/*Search section*/
