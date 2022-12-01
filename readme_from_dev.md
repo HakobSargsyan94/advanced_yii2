@@ -21,4 +21,6 @@ POST => <your_domain>/frontend/insert in body raw data (json)
 i sent your HR postman api documentation
 
 
+For view part you must go to <your_domain>/data/index
+
 
