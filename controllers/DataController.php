@@ -56,9 +56,6 @@ class DataController extends Controller
     public function actionView($id)
     {
         return $this->redirect(['index']);
-        /*return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);*/
     }
 
     /**
@@ -69,19 +66,6 @@ class DataController extends Controller
     public function actionCreate()
     {
         return $this->redirect(['index']);
-        $model = new Data();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**

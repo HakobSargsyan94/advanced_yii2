@@ -6,14 +6,11 @@ namespace app\models;
 class Frontend
 {
     /**
-     * @param string $data
      * @param string $token
      * @return false|void
      */
-    public static function insertJson (string $data, string $token, string $request = 'post'): void
+    public static function insertJson ($data, string $token, string $request = 'post'): void
     {
-        $checkIsValidToken = self::checkIsValidToken($token);
-        if ($checkIsValidToken) {
             $current_mem = memory_get_usage();
             $startTime = strtotime(date('Y-m-d H:i:s'));
             $db_data = new Data();
@@ -39,14 +36,13 @@ class Frontend
             } else {
                 die(json_encode(['status' => 400, 'message' => "Data don`t save!"]));
             }
-        }
     }
 
     /**
      * @param string $token
      * @return bool
      */
-    private static function checkIsValidToken (string $token): bool
+    public static function checkIsValidToken (string $token): bool
     {
         $checkAuthIsValid = Auth::find()->where(['token' => $token])->one();
         if ($checkAuthIsValid) {

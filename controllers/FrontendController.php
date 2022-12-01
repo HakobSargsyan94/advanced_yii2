@@ -19,17 +19,24 @@ class FrontendController extends Controller
 
     public function actionInsert () {
         $checkRequestIsPost = \Yii::$app->request->isPost;
-        $token = $_SERVER['HTTP_TOKEN'];
-        if ($checkRequestIsPost) {
-            $entityBody = file_get_contents('php://input');
-            Frontend::insertJson($entityBody, $token);
-        }
+        $token = $_SERVER['HTTP_TOKEN'] ?? '';
+        $isValidToken = Frontend::checkIsValidToken($token) ;
 
-        $checkRequestIsGet = \Yii::$app->request->isGet;
-        if ($checkRequestIsGet) {
-            $getData = $_GET;
-            Frontend::insertJson($getData, $token, self::REQUEST_GET);
-        }
+        if ($isValidToken) {
 
+            if ($checkRequestIsPost) {
+                $entityBody = file_get_contents('php://input');
+                Frontend::insertJson($entityBody, $token);
+            }
+
+            $checkRequestIsGet = \Yii::$app->request->isGet;
+            if ($checkRequestIsGet) {
+                $getData = $_GET;
+                Frontend::insertJson($getData, $token, self::REQUEST_GET);
+            }
+
+        } else {
+            die(json_encode(['status' => 400, 'message' => "Invalid token or token is expired"]));
+        }
     }
 }
