@@ -97,7 +97,6 @@ class DataController extends Controller
      */
     public function actionDelete($id)
     {
-        return $this->redirect(['index']);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

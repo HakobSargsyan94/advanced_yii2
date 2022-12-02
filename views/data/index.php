@@ -37,15 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return "<div class='target'>".$model->data."</div>";
                 },
             ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{update}',
-                'buttons' => [
-                    'delete' => function(){
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>');
-                    }
-                ]
-            ],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}'],
         ],
     ]); ?>
 
